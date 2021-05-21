@@ -1,5 +1,5 @@
 import { Observable } from "../../types/observable";
-import { createObservable } from "../../create-observable/create-observable";
+import { createObservable } from "../../create-observable/solutions/create-observable.solution.starosaur";
 
 export function filter<T>(checkFn: (item: T) => boolean) {
   return (source$: Observable) => {
