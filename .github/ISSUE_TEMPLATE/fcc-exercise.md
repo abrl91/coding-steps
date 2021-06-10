@@ -6,7 +6,7 @@ labels: good first issue, free-code-camp-js
 assignees: ""
 ---
 
-# FreeCodeCamp - <Topic> - <Exercise>
+# FreeCodeCamp <Topic> - <Exercise>
 
 
 ## References
