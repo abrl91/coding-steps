@@ -1,7 +1,7 @@
 ---
-name: free code camp - exercise - Comment your code
-about: Comment your code.
-title: "Free Code Camp exercise - Js - Comment your code"
+name: free code camp - exercise 
+about: FreeCodeCamp exercise issue.
+title: "Free Code Camp exercise"
 labels: good first issue, free-code-camp-js
 assignees: ""
 ---
