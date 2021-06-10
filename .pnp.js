@@ -31,6 +31,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         "reference": "workspace:packages/excercism"
       },
       {
+        "name": "@proftit/fcc-basic-js",
+        "reference": "workspace:packages/fcc-basic-js"
+      },
+      {
         "name": "@proftit/lodash-from-the-ground-up",
         "reference": "workspace:packages/lodash-from-the-ground-up"
       },
@@ -44,6 +48,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
     "fallbackExclusionList": [
       ["@proftit/coding-steps-website", ["workspace:packages/coding-steps-website"]],
       ["@proftit/exercism", ["workspace:packages/excercism"]],
+      ["@proftit/fcc-basic-js", ["workspace:packages/fcc-basic-js"]],
       ["@proftit/lodash-from-the-ground-up", ["workspace:packages/lodash-from-the-ground-up"]],
       ["@proftit/rxjs-from-the-ground-up", ["workspace:packages/rxjs-from-the-ground-up"]],
       ["coding-exercises", ["workspace:."]]
@@ -3020,6 +3025,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["marked", "npm:2.0.3"],
             ["rollup", "npm:2.47.0"],
             ["rollup-plugin-string", "npm:3.0.0"]
+          ],
+          "linkType": "SOFT",
+        }]
+      ]],
+      ["@proftit/fcc-basic-js", [
+        ["workspace:packages/fcc-basic-js", {
+          "packageLocation": "./packages/fcc-basic-js/",
+          "packageDependencies": [
+            ["@proftit/fcc-basic-js", "workspace:packages/fcc-basic-js"]
           ],
           "linkType": "SOFT",
         }]

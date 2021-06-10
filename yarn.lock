@@ -1867,6 +1867,12 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@proftit/fcc-basic-js@workspace:packages/fcc-basic-js":
+  version: 0.0.0-use.local
+  resolution: "@proftit/fcc-basic-js@workspace:packages/fcc-basic-js"
+  languageName: unknown
+  linkType: soft
+
 "@proftit/lodash-from-the-ground-up@workspace:packages/lodash-from-the-ground-up":
   version: 0.0.0-use.local
   resolution: "@proftit/lodash-from-the-ground-up@workspace:packages/lodash-from-the-ground-up"
