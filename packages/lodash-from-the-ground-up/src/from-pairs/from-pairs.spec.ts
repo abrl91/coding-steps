@@ -17,7 +17,7 @@ function runSpec(fromPairs) {
   });
 
   describe("fromPairsVersionII", () => {
-    test.only("returns an object of key-value pairs", () => {
+    test("returns an object of key-value pairs", () => {
       const results = fromPairsVersionII([
         ["a", 1],
         ["b", 2],
