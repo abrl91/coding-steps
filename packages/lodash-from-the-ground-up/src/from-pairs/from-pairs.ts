@@ -1,1 +1,1 @@
-export function fromPairs(arr: [[]]): object {}
+export function fromPairs(arr: any[][]): object {}

@@ -1,4 +1,4 @@
-export function fromPairsVersionII(arr: [[]]): object {
+export function fromPairsVersionII(arr: any[][]): object {
   const entries = new Map(arr);
   return Object.fromEntries(entries);
 }
