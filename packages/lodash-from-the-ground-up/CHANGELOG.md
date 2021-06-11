@@ -1,5 +1,11 @@
 # @proftit/lodash-from-the-ground-up
 
+## 1.3.1
+
+### Patch Changes
+
+- 3e8f023: None change to trigger changeset check
+
 ## 1.3.0
 
 ### Minor Changes
