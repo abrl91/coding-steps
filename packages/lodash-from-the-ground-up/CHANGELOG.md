@@ -1,5 +1,13 @@
 # @proftit/lodash-from-the-ground-up
 
+## 1.3.0
+
+### Minor Changes
+
+- 870ce73: add lodash groupBy
+- 1542f2a: add lodash fromPairs
+- 6b08f07: Add test ci
+
 ## 1.2.0
 
 ### Minor Changes

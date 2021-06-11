@@ -1,5 +1,13 @@
 # rxjs-from-start
 
+## 2.3.0
+
+### Minor Changes
+
+- fe7f467: add debounceTime
+- 1542f2a: add lodash fromPairs
+- 6b08f07: Add test ci
+
 ## 2.2.0
 
 ### Minor Changes
