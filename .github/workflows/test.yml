@@ -15,14 +15,20 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-      - name: Use Node.js 14.x
+
+      - name: Use Node.js 14.16.1
         uses: actions/setup-node@v2
         with:
-          node-version: ${{ matrix.node-version }}
+          node-version: 14.16.1
+
       - run: yarn install --immutable
+
       - run: yarn workspaces foreach run test-ci
+
       - run: yarn lint
-      - run: |
+
+      - name: lint changeset
+        run: |
           # Checkout PR head commit instead of merge commit
           # See: https://github.com/atlassian/changesets/issues/517
           git fetch origin ${GITHUB_HEAD_REF}
@@ -31,8 +37,9 @@ jobs:
           yarn changeset status --since=origin/${GITHUB_BASE_REF}
           git checkout ${GITHUB_SHA}
         if: ${{ github.event_name == 'pull_request' }}
-      - run: yarn merge-reports
-        # - uses: IgnusG/jest-report-action@v2.3.3
-        #if: always() # Or use "continue-on-error: true" in previous test step
-        #with:
-        # access-token: ${{ secrets.GITHUB_TOKEN }}
+
+      # - run: yarn merge-reports
+      # - uses: IgnusG/jest-report-action@v2.3.3
+      #if: always() # Or use "continue-on-error: true" in previous test step
+      #with:
+      # access-token: ${{ secrets.GITHUB_TOKEN }}

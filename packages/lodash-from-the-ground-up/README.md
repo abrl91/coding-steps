@@ -14,8 +14,8 @@ A learning project to build from the basic building blocks lodash and ES6 utilit
 - fill
 - flatten
 - flattenDeep
-- fromPairs
 - intersection
+- fromPairs
 
 ## References
 
