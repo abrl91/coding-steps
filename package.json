@@ -24,6 +24,7 @@
     "lint:changeset": "changeset status --since=main",
     "merge-reports": "jrm ./junit.xml \"./packages/**/junit.xml\"",
     "lint": "yarn lint:prettier",
+    "lint:pr": "yarn lint && yarn lint:changeset",
     "changeset:add": "changeset"
   }
 }

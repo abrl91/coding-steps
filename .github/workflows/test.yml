@@ -22,6 +22,15 @@ jobs:
       - run: yarn install --immutable
       - run: yarn workspaces foreach run test-ci
       - run: yarn lint
+      - run: |
+          # Checkout PR head commit instead of merge commit
+          # See: https://github.com/atlassian/changesets/issues/517
+          git fetch origin ${GITHUB_HEAD_REF}
+          git fetch origin ${GITHUB_BASE_REF}
+          git checkout ${GITHUB_HEAD_REF}
+          yarn changeset status --since=origin/${GITHUB_BASE_REF}
+          git checkout ${GITHUB_SHA}
+        if: ${{ github.event_name == 'pull_request' }}
       - run: yarn merge-reports
         # - uses: IgnusG/jest-report-action@v2.3.3
         #if: always() # Or use "continue-on-error: true" in previous test step

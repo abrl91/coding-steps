@@ -1,13 +1,13 @@
 ---
-name: free code camp - exercise 
+name: free code camp - exercise
 about: FreeCodeCamp exercise issue.
 title: "Free Code Camp exercise"
 labels: good first issue, free-code-camp-js
 assignees: ""
 ---
 
-# FreeCodeCamp - 
-
+# FreeCodeCamp -
 
 ## References
-* https://www.freecodecamp.org/learn/javascript-algorithms-and-data-structures/basic-javascript/comment-your-javascript-code
+
+- https://www.freecodecamp.org/learn/javascript-algorithms-and-data-structures/basic-javascript/comment-your-javascript-code

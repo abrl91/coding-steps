@@ -1,5 +1,5 @@
 ---
-"@proftit/fcc-js-algorithm-and-data-struct": minor
+"@proftit/fcc-basic-js": minor
 ---
 
 add fcc js pacakge
