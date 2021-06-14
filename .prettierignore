@@ -4,6 +4,9 @@
 .pnp.js
 .yarnrc.yml
 .yarn.lock
+.gitignore
+yarn.lock
+**/.prettierignore
 
 build
 dist

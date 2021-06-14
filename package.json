@@ -16,7 +16,9 @@
     "prettier": "2.3.0"
   },
   "lint-staged": {
-    "**/*": "prettier --write --ignore-unknown"
+    "*.{ts,js,md, json}": [
+      "prettier --write --ignore-unknown"
+    ]
   },
   "scripts": {
     "postinstall": "husky install",
