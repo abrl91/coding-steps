@@ -3015,6 +3015,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["front-matter", "npm:4.0.2"],
             ["jest", "npm:26.6.3"],
             ["jest-junit", "npm:12.1.0"],
+            ["lodash", "npm:4.17.21"],
             ["marked", "npm:2.0.3"],
             ["rollup", "npm:2.47.0"],
             ["rollup-plugin-string", "npm:3.0.0"]
