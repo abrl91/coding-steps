@@ -27,16 +27,20 @@ jobs:
 
       - run: yarn lint
 
-      - name: lint changeset
-        run: |
-          # Checkout PR head commit instead of merge commit
-          # See: https://github.com/atlassian/changesets/issues/517
-          git fetch origin ${GITHUB_HEAD_REF}
-          git fetch origin ${GITHUB_BASE_REF}
-          git checkout ${GITHUB_HEAD_REF}
-          yarn changeset status --since=origin/${GITHUB_BASE_REF}
-          git checkout ${GITHUB_SHA}
-        if: ${{ github.event_name == 'pull_request' }}
+      #####
+      # Currently not working for forks pull requests. Github checkout action
+      # does only merged commit so forked head is not available for compare.
+      #####
+      # - name: lint changeset
+      # run: |
+      # Checkout PR head commit instead of merge commit
+      # See: https://github.com/atlassian/changesets/issues/517
+      # git fetch origin ${GITHUB_HEAD_REF}
+      # git fetch origin ${GITHUB_BASE_REF}
+      # git checkout ${GITHUB_HEAD_REF}
+      # yarn changeset status --since=origin/${GITHUB_BASE_REF}
+      # git checkout ${GITHUB_SHA}
+      # if: ${{ github.event_name == 'pull_request' }}
 
       # - run: yarn merge-reports
       # - uses: IgnusG/jest-report-action@v2.3.3
