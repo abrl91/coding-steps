@@ -1,5 +1,15 @@
 # @proftit/exercism
 
+## 1.3.0
+
+### Minor Changes
+
+- 64fde01: Exercism - Binary Search
+
+### Patch Changes
+
+- 99c5fa0: solved nucleotide count
+
 ## 1.2.0
 
 ### Minor Changes
