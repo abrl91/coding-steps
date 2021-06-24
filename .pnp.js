@@ -27,6 +27,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         "reference": "workspace:packages/coding-steps-website"
       },
       {
+        "name": "dependecy-injection-from-the-ground-up",
+        "reference": "workspace:packages/dependecy-injection-from-the-ground-up"
+      },
+      {
         "name": "@proftit/exercism",
         "reference": "workspace:packages/excercism"
       },
@@ -51,7 +55,8 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
       ["@proftit/fcc-basic-js", ["workspace:packages/fcc-basic-js"]],
       ["@proftit/lodash-from-the-ground-up", ["workspace:packages/lodash-from-the-ground-up"]],
       ["@proftit/rxjs-from-the-ground-up", ["workspace:packages/rxjs-from-the-ground-up"]],
-      ["coding-exercises", ["workspace:."]]
+      ["coding-exercises", ["workspace:."]],
+      ["dependecy-injection-from-the-ground-up", ["workspace:packages/dependecy-injection-from-the-ground-up"]]
     ],
     "fallbackPool": [
     ],
@@ -5388,6 +5393,25 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["depd", "npm:1.1.2"]
           ],
           "linkType": "HARD",
+        }]
+      ]],
+      ["dependecy-injection-from-the-ground-up", [
+        ["workspace:packages/dependecy-injection-from-the-ground-up", {
+          "packageLocation": "./packages/dependecy-injection-from-the-ground-up/",
+          "packageDependencies": [
+            ["dependecy-injection-from-the-ground-up", "workspace:packages/dependecy-injection-from-the-ground-up"],
+            ["@babel/core", "npm:7.14.0"],
+            ["@babel/preset-env", "virtual:1a7fe2efa5226f97f43b5fa5d740fd800617515fc0c70d6d4e24ebc7e4ae07d2ed60992b711b4b1bb9c1dc15315f16c4155dd1a014bc7476f23c9d297a5fccd0#npm:7.14.0"],
+            ["@babel/preset-typescript", "virtual:1a7fe2efa5226f97f43b5fa5d740fd800617515fc0c70d6d4e24ebc7e4ae07d2ed60992b711b4b1bb9c1dc15315f16c4155dd1a014bc7476f23c9d297a5fccd0#npm:7.13.0"],
+            ["@rollup/plugin-typescript", "virtual:c5c67be3f7840924e3177cb1caa61de5830b10414fda0e4e81e8d57ef9d4e1afbff91d55e0d9a133aa7d9ff7d64244c28b1faf8a18ce39f11d5b315d7e68adb0#npm:8.2.1"],
+            ["babel-jest", "virtual:caddf51df4928b33a437ca87b8f5ddfb6205ebd6d8231f74d4ee7223f3866e6f815b221aa1e2bd33e98915f701e95bae72a93d2288b49a34a6246bdbc2a4a132#npm:26.6.3"],
+            ["jest", "npm:26.6.3"],
+            ["jest-junit", "npm:12.1.0"],
+            ["rollup", "npm:2.47.0"],
+            ["tslib", "npm:2.2.0"],
+            ["typescript", "patch:typescript@npm%3A4.2.4#builtin<compat/typescript>::version=4.2.4&hash=a45b0e"]
+          ],
+          "linkType": "SOFT",
         }]
       ]],
       ["detect-indent", [
