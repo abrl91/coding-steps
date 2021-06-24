@@ -14,8 +14,13 @@ export class Container {
     this.registrations[name] = new strategy(factory);
   }
 
-  registerType(name: string, ctor: any) {
-    this.registrations[name] = new Default(() => new ctor());
+  registerType(name: string, Ctor: any, strategy) {
+    strategy = strategy || Default;
+    this.registrations[name] = new strategy(() => new Ctor());
+  }
+
+  createChild() {
+    return new Container();
   }
 
   resolve(name: string) {
