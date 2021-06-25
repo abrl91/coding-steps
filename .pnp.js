@@ -27,8 +27,8 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         "reference": "workspace:packages/coding-steps-website"
       },
       {
-        "name": "dependecy-injection-from-the-ground-up",
-        "reference": "workspace:packages/dependecy-injection-from-the-ground-up"
+        "name": "dependency-injection-from-the-ground-up",
+        "reference": "workspace:packages/dependency-injection-from-the-ground-up"
       },
       {
         "name": "@proftit/exercism",
@@ -56,7 +56,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
       ["@proftit/lodash-from-the-ground-up", ["workspace:packages/lodash-from-the-ground-up"]],
       ["@proftit/rxjs-from-the-ground-up", ["workspace:packages/rxjs-from-the-ground-up"]],
       ["coding-exercises", ["workspace:."]],
-      ["dependecy-injection-from-the-ground-up", ["workspace:packages/dependecy-injection-from-the-ground-up"]]
+      ["dependency-injection-from-the-ground-up", ["workspace:packages/dependency-injection-from-the-ground-up"]]
     ],
     "fallbackPool": [
     ],
@@ -5395,11 +5395,11 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD",
         }]
       ]],
-      ["dependecy-injection-from-the-ground-up", [
-        ["workspace:packages/dependecy-injection-from-the-ground-up", {
-          "packageLocation": "./packages/dependecy-injection-from-the-ground-up/",
+      ["dependency-injection-from-the-ground-up", [
+        ["workspace:packages/dependency-injection-from-the-ground-up", {
+          "packageLocation": "./packages/dependency-injection-from-the-ground-up/",
           "packageDependencies": [
-            ["dependecy-injection-from-the-ground-up", "workspace:packages/dependecy-injection-from-the-ground-up"],
+            ["dependency-injection-from-the-ground-up", "workspace:packages/dependency-injection-from-the-ground-up"],
             ["@babel/core", "npm:7.14.0"],
             ["@babel/preset-env", "virtual:1a7fe2efa5226f97f43b5fa5d740fd800617515fc0c70d6d4e24ebc7e4ae07d2ed60992b711b4b1bb9c1dc15315f16c4155dd1a014bc7476f23c9d297a5fccd0#npm:7.14.0"],
             ["@babel/preset-typescript", "virtual:1a7fe2efa5226f97f43b5fa5d740fd800617515fc0c70d6d4e24ebc7e4ae07d2ed60992b711b4b1bb9c1dc15315f16c4155dd1a014bc7476f23c9d297a5fccd0#npm:7.13.0"],
