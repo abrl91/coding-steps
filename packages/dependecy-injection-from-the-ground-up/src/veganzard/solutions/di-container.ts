@@ -24,7 +24,13 @@ export class Container {
   }
 
   resolve(name: string) {
-    return this.registrations[name].resolve();
+    if (this.registrations.hasOwnProperty(name)) {
+      return this.registrations[name].resolve();
+    }
+
+    // if (parent) return parent.resolve(name);
+
+    throw new Error(`Missing registration for "${name}"`);
   }
 }
 

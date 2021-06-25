@@ -71,29 +71,41 @@ function runSpec(Container) {
       expect(result1).toBe(result2);
     });
 
-    /*test('resolved from parent container', () => {
+    test.skip("resolved from parent container", () => {
       const container = new Container({});
       const service = {};
-      container.registerInstance('service', service);
+      container.registerInstance("service", service);
       const child = container.createChild();
-      expect(child.resolve('service')).toBe(service);
-    });*/
+      expect(child.resolve("service")).toBe(service);
+    });
 
-    /*test('throw if registration', () => {
+    test("throw if no registration", () => {
+      const container = new Container({});
+      expect(function () {
+        container.resolve("unknown");
+      }).toThrowError('Missing registration for "unknown"');
+    });
 
-        });*/
+    test("not resolved from parent registration", () => {
+      const container = new Container({});
+      const service = {};
+      const child = container.createChild();
+      child.registerInstance("service", service);
+      expect(child.resolve("service")).toBe(service);
+    });
 
-    /*test('not resolved from parent registration', () => {
+    test("override parent registration", () => {
+      const container = new Container({});
+      const service1 = {};
+      const service2 = {};
+      const child = container.createChild();
+      container.registerInstance("service", service1);
+      child.registerInstance("service", service2);
+      expect(container.resolve("service")).toBe(service1);
+      expect(child.resolve("service")).toBe(service2);
+    });
 
-        });*/
-
-    /*test('override parent registration', () => {
-
-        });*/
-
-    /*test('resolved dependencies recursively', () => {
-
-        });*/
+    test("resolved dependencies recursively", () => {});
   });
 }
 
