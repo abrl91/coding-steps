@@ -105,7 +105,7 @@ function runSpec(Container) {
       expect(child.resolve("service")).toBe(service2);
     });
 
-    test.only("resolved dependencies recursively", () => {
+    test("resolved dependencies recursively", () => {
       const container = new Container();
 
       function Service1() {

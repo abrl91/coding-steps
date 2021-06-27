@@ -16,15 +16,17 @@ export class Container {
 
   registerType(name: string, Ctor: any, strategy) {
     strategy = strategy || Default;
-    Ctor = this.satisfyImports(Ctor);
-    this.registrations[name] = new strategy(() => new Ctor());
+    this.registrations[name] = new strategy(() => {
+      Ctor = this.satisfyImports(Ctor);
+      return new Ctor();
+    });
   }
 
   satisfyImports(Ctor: any) {
     if (!Ctor.$imports) return Ctor;
 
-    const ctorArgs = Ctor.$imports.map(this.resolve);
-    return Ctor.bind(Ctor, ...ctorArgs);
+    const ctorArgs = Ctor.$imports.map((imp) => this.resolve(imp));
+    return Ctor.bind({}, ...ctorArgs);
   }
 
   createChild() {
@@ -32,7 +34,6 @@ export class Container {
   }
 
   resolve(name: string) {
-    console.log("***registrations", this.registrations);
     if (this.registrations.hasOwnProperty(name)) {
       return this.registrations[name].resolve();
     }
@@ -56,9 +57,9 @@ export class Singleton {
 }
 
 export class Default {
-  constructor(readonly registrations) {}
+  constructor(readonly registration) {}
 
   resolve() {
-    return this.registrations();
+    return this.registration();
   }
 }
