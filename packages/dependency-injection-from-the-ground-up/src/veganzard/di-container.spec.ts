@@ -2,7 +2,7 @@ import { solutions } from "./solutions";
 import { Singleton } from "./solutions/di-container";
 
 function runSpec(Container) {
-  describe.only("Container", () => {
+  describe("Container", () => {
     test("resolved instance from instance registration", () => {
       const service = {};
       const container = new Container({});
@@ -12,13 +12,13 @@ function runSpec(Container) {
 
     test("resolved instance from factory registration", () => {
       const service = {};
-      const container = new Container({});
+      const container = new Container();
       container.registerFactory("service", () => service);
       expect(container.resolve("service")).toBe(service);
     });
 
     test("resolved instance from constructor registration", () => {
-      const container = new Container({});
+      const container = new Container();
 
       function MyService() {
         this.name = "MyService";
@@ -30,7 +30,7 @@ function runSpec(Container) {
     });
 
     test("resolved singleton from instance registration", () => {
-      const container = new Container({});
+      const container = new Container();
       const service = {};
 
       container.registerInstance("service", service);
@@ -42,7 +42,7 @@ function runSpec(Container) {
     });
 
     test("resolved singleton from instance registration", () => {
-      const container = new Container({});
+      const container = new Container();
 
       const factory = function () {
         return {};
@@ -57,7 +57,7 @@ function runSpec(Container) {
     });
 
     test("resolved singleton from instance registration", () => {
-      const container = new Container({});
+      const container = new Container();
 
       function MyFunction() {
         this.name = "MyFunction";
@@ -71,8 +71,8 @@ function runSpec(Container) {
       expect(result1).toBe(result2);
     });
 
-    test.skip("resolved from parent container", () => {
-      const container = new Container({});
+    test("resolved from parent container", () => {
+      const container = new Container();
       const service = {};
       container.registerInstance("service", service);
       const child = container.createChild();
@@ -80,14 +80,14 @@ function runSpec(Container) {
     });
 
     test("throw if no registration", () => {
-      const container = new Container({});
+      const container = new Container();
       expect(function () {
         container.resolve("unknown");
       }).toThrowError('Missing registration for "unknown"');
     });
 
     test("not resolved from parent registration", () => {
-      const container = new Container({});
+      const container = new Container();
       const service = {};
       const child = container.createChild();
       child.registerInstance("service", service);
@@ -95,7 +95,7 @@ function runSpec(Container) {
     });
 
     test("override parent registration", () => {
-      const container = new Container({});
+      const container = new Container();
       const service1 = {};
       const service2 = {};
       const child = container.createChild();
@@ -105,7 +105,40 @@ function runSpec(Container) {
       expect(child.resolve("service")).toBe(service2);
     });
 
-    test("resolved dependencies recursively", () => {});
+    test.only("resolved dependencies recursively", () => {
+      const container = new Container();
+
+      function Service1() {
+        this.name = "service1";
+      }
+
+      function Service2(service3) {
+        this.name = "service2";
+
+        expect(service3.name).toBe("service3");
+      }
+
+      Service2.$imports = ["service3"];
+
+      function Service3() {
+        this.name = "service3";
+      }
+
+      function Client(service1, service2) {
+        this.name = "client";
+        expect(service1.name).toBe("service1");
+        expect(service2.name).toBe("service2");
+      }
+
+      Client.$imports = ["service1", "service2"];
+
+      container.registerType("service1", Service1, null);
+      container.registerType("service2", Service2, null);
+      container.registerType("service3", Service3, null);
+      container.registerType("client", Client, null);
+
+      expect(container.resolve("client").name).toBe("client");
+    });
   });
 }
 

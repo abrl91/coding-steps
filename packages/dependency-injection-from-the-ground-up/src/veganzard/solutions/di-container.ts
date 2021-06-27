@@ -1,7 +1,7 @@
 export class Container {
   registrations: Record<string, { resolve: () => any }>;
 
-  constructor() {
+  constructor(readonly parentContainer) {
     this.registrations = {};
   }
 
@@ -16,19 +16,28 @@ export class Container {
 
   registerType(name: string, Ctor: any, strategy) {
     strategy = strategy || Default;
+    Ctor = this.satisfyImports(Ctor);
     this.registrations[name] = new strategy(() => new Ctor());
   }
 
+  satisfyImports(Ctor: any) {
+    if (!Ctor.$imports) return Ctor;
+
+    const ctorArgs = Ctor.$imports.map(this.resolve);
+    return Ctor.bind(Ctor, ...ctorArgs);
+  }
+
   createChild() {
-    return new Container();
+    return new Container(this);
   }
 
   resolve(name: string) {
+    console.log("***registrations", this.registrations);
     if (this.registrations.hasOwnProperty(name)) {
       return this.registrations[name].resolve();
     }
 
-    // if (parent) return parent.resolve(name);
+    if (this.parentContainer) return this.parentContainer.resolve(name);
 
     throw new Error(`Missing registration for "${name}"`);
   }
@@ -46,10 +55,10 @@ export class Singleton {
   }
 }
 
-class Default {
-  constructor(readonly registration) {}
+export class Default {
+  constructor(readonly registrations) {}
 
   resolve() {
-    return this.registration();
+    return this.registrations();
   }
 }
