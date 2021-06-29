@@ -1,7 +1,7 @@
 export class Container {
   registrations: Record<string, { resolve: () => any }>;
 
-  constructor(readonly parentContainer) {
+  constructor(readonly parentContainer: Container) {
     this.registrations = {};
   }
 

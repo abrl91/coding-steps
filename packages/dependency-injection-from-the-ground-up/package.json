@@ -1,5 +1,5 @@
 {
-  "name": "dependency-injection-from-the-ground-up",
+  "name": "@proftit/dependency-injection-from-the-ground-up",
   "version": "1.0.0",
   "scripts": {
     "build": "rollup -c",

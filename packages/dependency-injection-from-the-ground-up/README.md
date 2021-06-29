@@ -9,7 +9,7 @@ design to achieve loose coupling between application calsses.
 
 ---
 
-## DIP - Deependecy Inversion Principle
+## DIP - Dependency Inversion Principle
 
 Like IoC, helps to achive loose coupling between classes.
 
@@ -29,7 +29,7 @@ To achieve loosely couples classes we need to combine between Ioc, DIP, DI and I
 
 ---
 
-## The dependecy injection pattern involves 3 types of classes:
+## The dependency injection pattern involves 3 types of classes:
 
 1. client class - depends on the service class
 2. service class - provides service to the client class
@@ -38,3 +38,10 @@ To achieve loosely couples classes we need to combine between Ioc, DIP, DI and I
    constructor injection, property injection, method injection.
 
 The injector class creates an object of the service class, and injects that object to a client object. In this way, the DI pattern separates the responsibility of creating an object of the service class out of the client class.
+
+---
+
+### Resources:
+
+- [Implementing DI Container in JavaScript](https://www.youtube.com/watch?v=zuEn2C_Xcc8&ab_channel=%D0%90%D0%BB%D0%B5%D0%BA%D1%81%D0%B5%D0%B9%D0%9E%D0%BD%D0%B0%D1%89%D1%83%D0%BA)
+- [Inversion of Control Tutorials](https://www.tutorialsteacher.com/ioc/index)

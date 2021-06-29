@@ -41,7 +41,7 @@ function runSpec(Container) {
       expect(result1).toBe(result2);
     });
 
-    test("resolved singleton from instance registration", () => {
+    test("resolved singleton from factory registration", () => {
       const container = new Container();
 
       const factory = function () {
@@ -56,7 +56,7 @@ function runSpec(Container) {
       expect(result1).toBe(result2);
     });
 
-    test("resolved singleton from instance registration", () => {
+    test("resolved singleton from constructor registration", () => {
       const container = new Container();
 
       function MyFunction() {
